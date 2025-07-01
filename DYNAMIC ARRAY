@@ -1,0 +1,17 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdlib.h>
+int main (){
+    int n;
+    printf("enter the size of array:");
+    scanf("%d",&n);
+    int * arr =(int*)malloc(n*sizeof(int));
+    for(int i=0;i<=4;i++){
+        printf("enter the value at an[%d]index:",i);
+        scanf("%d",&arr[i]);
+        
+    }
+        for(int i=0;i<=4;i++){
+        }printf("%d",arr[4]);
+return 0;
+}
