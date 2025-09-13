@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+struct node {
+    int data;
+    node * right;
+    node * left;
+    node(int val) {
+        data=val;
+        left=right=nullptr;
+    }
+};
+void inorder(node*root){
+    if(root){
+        inorder(root->left);
+        cout<<root->data<<" ";
+        inorder(root->right);
+    }
+}
+
+node* insert(node*root,int key){
+    if(root==nullptr){
+        return new node(key);
+    }
+    else if(key<root->data){
+        root->left=insert(root->left,key);
+    }
+    else if(key>root->data){
+        root->right=insert(root->right,key);
+    }
+        return root;
+}
+
+int main() {
+    int n;
+    cout<<"Enter the total no of nodes: ";
+    cin>>n;
+    int*arr=new int[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    node*root=nullptr;
+    for(int i=0;i<n;i++) {
+        root=insert(root,arr[i]);
+    }
+    inorder(root);
+}
